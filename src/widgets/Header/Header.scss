@@ -1,0 +1,26 @@
+@import '/src/shared/scss/vars';
+@import '/src/shared/scss/mixin';
+
+.header {
+  &-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height;
+    padding: 10px 0;
+
+    &__logo {
+      img {
+        width: 104px;
+        height: 26px;
+      }
+    }
+    &__btn-group {
+      .btn {
+        @media only screen and (max-width: 359px) {
+          min-width: auto;
+        }
+      }
+    }
+  }
+}

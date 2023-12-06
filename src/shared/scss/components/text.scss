@@ -1,0 +1,23 @@
+.text-center {
+  text-align: center;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-btn {
+  margin-top: 20px;
+  &--lg {
+    margin-top: 50px;
+  }
+}
+
+.text-link {
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+
+  &:hover {
+    color: $color-secondary;
+  }
+}

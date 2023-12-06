@@ -1,0 +1,39 @@
+.user-card {
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  animation: fadein 0.5s;
+  &:hover {
+    z-index: 5;
+  }
+  &__bg {
+  }
+  &__image {
+    background: url(./img/photo-cover.jpg) center / cover no-repeat;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 0 auto 22px;
+
+    img {
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+    }
+  }
+  &__name {
+    margin-bottom: 20px;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__info {
+    li {
+      margin-bottom: 3px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

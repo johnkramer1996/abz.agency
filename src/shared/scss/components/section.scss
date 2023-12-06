@@ -1,0 +1,71 @@
+.section {
+  position: relative;
+  padding-top: $section-padding;
+  padding-bottom: $section-padding;
+  background: center top / cover no-repeat;
+
+  &--pb-0 {
+    padding-bottom: 0;
+  }
+
+  &::before,
+  &::after,
+  &__bg::before,
+  &__bg::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    pointer-events: none;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: center top / cover no-repeat;
+    z-index: -1;
+
+    &::before,
+    &::after {
+      visibility: hidden;
+    }
+
+    &::before {
+      background-color: inherit;
+    }
+
+    &--light {
+      background-color: $color-light;
+
+      &::before {
+        opacity: 0.5;
+      }
+    }
+
+    &--dark {
+      background-color: #241a09;
+
+      &::before {
+        opacity: 0.5;
+      }
+    }
+
+    &--overlay {
+      &::before {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}

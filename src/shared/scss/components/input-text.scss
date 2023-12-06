@@ -1,0 +1,186 @@
+.input {
+  position: relative;
+  margin-bottom: $input-mb;
+
+  &--text {
+    min-height: 75px;
+  }
+
+  &--radio {
+    margin-bottom: 50px;
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__input {
+    height: $input-height;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 $input-padding;
+    background-color: transparent;
+    border: 1px solid $input-border-color;
+    border-top-color: transparent;
+    border-radius: $input-border-radius;
+    box-shadow: none;
+    cursor: pointer;
+    text-align: left;
+    font-weight: 400;
+    font-family: $text-font-family;
+    color: $color-text;
+    font-size: $text-font-size;
+    transition: border 0.3s, background-color 0.3s;
+  }
+
+  &__label {
+    margin-bottom: 20px;
+  }
+
+  &__border {
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      border-top: 1px solid $input-border-color;
+      border-radius: $input-border-radius;
+      pointer-events: none;
+      transition: width 0.3s, border 0.3s;
+    }
+    &::before {
+      left: 0;
+      width: 10px;
+      border-top-right-radius: 0;
+    }
+    &::after {
+      right: 0;
+      width: calc(100% - 10px);
+      transition-delay: 0.1s;
+      border-top-left-radius: 0;
+    }
+  }
+
+  &__placeholder {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: flex;
+    align-items: center;
+    padding: 0 $input-padding;
+    color: $color-placeholder;
+    pointer-events: none;
+    transition: top 0.3s, font-size 0.3s;
+  }
+
+  &__helper {
+    margin-top: 5px;
+    padding: 0 $input-padding;
+    color: $color-placeholder;
+    font-size: 12px;
+  }
+
+  &__error {
+    color: $color-error;
+    font-size: 12px;
+    line-height: 1.3;
+    border-radius: 0;
+  }
+
+  &--radio &__error {
+    margin-bottom: 10px;
+  }
+
+  &--text &__error,
+  &--file &__error {
+    padding: 0 $input-padding;
+    margin-top: 5px;
+  }
+
+  &__icon {
+    position: absolute;
+    right: 30px;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+
+    @include sm {
+      right: 20px;
+    }
+  }
+}
+
+.input {
+  &--filled &__border,
+  &__input:focus ~ &__border {
+    &::after {
+      transition-delay: 0s;
+    }
+  }
+
+  &--filled &__border--80,
+  &__input:focus ~ &__border--80 {
+    &::after {
+      width: calc(100% - 80px);
+    }
+  }
+
+  &--filled &__placeholder,
+  &__input:focus ~ &__placeholder {
+    top: 0;
+    font-size: 12px;
+    transition-delay: 0.1s;
+  }
+}
+
+.input {
+  &--error.input--text {
+    .input__input {
+      border-top-color: transparent;
+    }
+  }
+  &--error {
+    .input__input {
+      border-color: $color-error;
+      color: $color-error;
+      border-width: 2px;
+    }
+
+    .input__error {
+    }
+
+    .input__placeholder {
+      color: $color-error;
+    }
+    .input__border {
+      &::before,
+      &::after {
+        border-color: $color-error;
+        border-width: 2px;
+      }
+    }
+  }
+}
+
+.input {
+  &--textarea {
+    .input__input {
+      height: $textarea-height;
+      min-height: $textarea-height;
+      padding-top: 20px;
+      resize: vertical;
+      vertical-align: top;
+
+      @include sm {
+        height: 120px;
+        min-height: 120px;
+      }
+    }
+  }
+}

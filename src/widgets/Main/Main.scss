@@ -1,0 +1,68 @@
+@import '/src/shared/scss/vars';
+@import '/src/shared/scss/mixin';
+
+.s-main {
+  padding-top: 0;
+  padding-bottom: 0;
+  &__bg {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: center / cover no-repeat;
+    z-index: -1;
+    @include xl-min {
+      max-width: 1170px;
+      margin: 0 auto;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #000;
+      opacity: 0.5;
+    }
+  }
+
+  &__container {
+    position: relative;
+    min-height: 650px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    @include lg {
+      min-height: 500px;
+    }
+    @include sm {
+      padding-top: 15px;
+    }
+  }
+}
+
+.main {
+  text-align: center;
+
+  &__width {
+    max-width: 395px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-family: Nunito;
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  &__subtitle {
+  }
+  &__btn-wrap {
+    margin-top: 30px;
+  }
+}

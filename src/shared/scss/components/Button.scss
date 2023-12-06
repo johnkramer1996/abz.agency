@@ -1,0 +1,176 @@
+.btn-group {
+  margin-left: -5px;
+  margin-right: -5px;
+  &__item {
+    margin: 0 5px;
+  }
+}
+
+.btn {
+  position: relative;
+  top: 0;
+  z-index: 3;
+  vertical-align: top;
+  white-space: normal;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: $btn-height;
+  min-width: 100px;
+  padding: 5px 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 16px;
+  color: rgba($color-text, 0.87);
+  border-radius: 80px;
+  transition: background-color 0.3s, border-color 0.3s, top 0.3s, box-shadow 0.3s;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    transition: all 0.3s;
+  }
+
+  &::before {
+    z-index: -2;
+  }
+
+  &::after {
+    z-index: -1;
+    opacity: 0;
+  }
+
+  &:hover {
+    &::before {
+      box-shadow: none;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    top: 3px;
+
+    &::before {
+    }
+
+    &::after {
+      box-shadow: none;
+    }
+  }
+
+  &.text-white {
+    color: #fff;
+  }
+}
+
+.btn--accent {
+  &::before {
+    background-color: $color-accent;
+  }
+
+  &::after {
+    background-color: $color-accent-hover;
+  }
+}
+
+.btn--secondary {
+  &::before {
+    background-color: $color-secondary;
+  }
+
+  &::after {
+    background-color: $color-secondary-hover;
+  }
+}
+
+.btn {
+  &--disabled {
+    color: $color-text;
+    pointer-events: none;
+    user-select: none;
+    color: #fff;
+
+    &::before {
+      border-color: $color-disabled;
+      background-color: $color-disabled;
+    }
+
+    &::after {
+      border-color: $color-disabled;
+      background-color: $color-disabled;
+    }
+  }
+}
+
+.btn {
+  &--loading {
+    color: transparent !important;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+.btn__loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    margin: 5px;
+    background-color: #fff;
+    animation: loader 1s infinite alternate;
+
+    &:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    &:nth-child(4) {
+      animation-delay: 0.8s;
+    }
+
+    &:nth-child(5) {
+      animation-delay: 1s;
+    }
+  }
+}
+
+@keyframes loader {
+  from {
+    border-radius: calc(2px / 2);
+    width: 2px;
+    height: 2px;
+  }
+
+  to {
+    border-radius: calc(20px / 2);
+    width: 20px;
+    height: 20px;
+  }
+}

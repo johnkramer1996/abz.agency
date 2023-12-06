@@ -1,0 +1,13 @@
+.s-sign-up {
+  &__container {
+  }
+  &__form {
+    max-width: 380px;
+    margin: 0 auto;
+    animation: fadein 0.5s;
+  }
+  &__success-image {
+    text-align: center;
+    animation: fadein 0.5s;
+  }
+}
